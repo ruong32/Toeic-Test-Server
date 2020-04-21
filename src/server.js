@@ -1,5 +1,4 @@
 import express from 'express';
-import http from 'http';
 import path from 'path';
 import bodyParser from 'body-parser';
 import initRoutes from '../src/routes/routes';
