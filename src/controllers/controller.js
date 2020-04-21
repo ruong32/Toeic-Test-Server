@@ -2,9 +2,12 @@ import service from '../services/service'
 
 const insertwords = (req, res) => {
   service.createWords();
+  res.redirect('/');
+
 }
 const insertQuestions = (req, res) => {
   service.createQuestions();
+  res.redirect('/');
 } 
 
 const getAllWords = async (req, res) => {

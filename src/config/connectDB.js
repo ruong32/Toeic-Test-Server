@@ -3,7 +3,7 @@ import bluebird from "bluebird";
 
 const connectDB = () => {
     mongoose.Promise = bluebird;
-    let URI = `mongodb://localhost:27017/toeicTest`;
+    let URI = `mongodb+srv://user:user@cluster0-ncnxf.gcp.mongodb.net/toeic-test?retryWrites=true&w=majority`;
     return mongoose.connect(URI, {useNewUrlParser: true});
 };
 
