@@ -2,12 +2,9 @@ import service from '../services/service'
 
 const insertwords = (req, res) => {
   service.createWords();
-  res.redirect('/');
-
 }
 const insertQuestions = (req, res) => {
   service.createQuestions();
-  res.redirect('/');
 } 
 
 const getAllWords = async (req, res) => {
@@ -52,4 +49,23 @@ const updateData = async (req, res) => {
   res.json({result: result});
 }
 
-export default { insertwords, insertQuestions, getAllWords, getAllQuestions, createNewWord, createNewQuestion, updateData }
+const checkLoggedIn = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+      return res.redirect("/login");
+  }
+  next();
+};
+const checkLoggedOut = (req, res, next) => {
+  if (req.isAuthenticated()) {
+      return res.redirect("/");
+  }
+  next();
+};
+
+const logout = (req, res) => {
+  req.logout();
+  return res.redirect("/login");
+};
+
+
+export default { getAllWords, getAllQuestions, createNewWord, createNewQuestion, updateData, checkLoggedIn, checkLoggedOut, logout }
