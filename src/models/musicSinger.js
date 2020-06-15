@@ -6,8 +6,7 @@ const { Schema, Types } = mongoose;
 const MusicSingerSchema = new Schema({
   name: String,
   picture: String,
-  description: String,
-  songs: [{type: Types.ObjectId, ref: 'MusicSong'}],
+  description: String
 });
 
 MusicSingerSchema.statics = {
@@ -18,10 +17,10 @@ MusicSingerSchema.statics = {
     return this.findOne({"name": name}).exec(); 
   },
   findSingerById(id){
-    return this.findById(id).populate('songs').exec();
+    return this.findById(id).exec();
   },
   findAllSinger(){
-    return this.find({}).populate('songs').exec();
+    return this.find({}).exec();
   },
   addSong(id, songId){
     return this.findOneAndUpdate(

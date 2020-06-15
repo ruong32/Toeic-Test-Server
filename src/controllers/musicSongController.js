@@ -29,4 +29,10 @@ const findAllSongs = async (req, res) => {
   return res.json(result);
 }
 
-export default { createSong, findSongByName, findSongById, findAllSongs }
+const findSongsBySinger = async (req, res) => {
+  const singerId = req.params.singerId;
+  const result = await MusicSongServices.findSongsBySinger(singerId);
+  return res.json(result);
+}
+
+export default { createSong, findSongByName, findSongById, findAllSongs, findSongsBySinger }

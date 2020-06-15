@@ -16,4 +16,8 @@ const findAllSongs = async () => {
   return await MusicSong.findAllSongs();
 }
 
-export default {createSong, findSongById, findSongByName, findAllSongs}
+const findSongsBySinger = async singerId => {
+  return await MusicSong.findSongsBySinger(singerId);
+}
+
+export default {createSong, findSongById, findSongByName, findAllSongs, findSongsBySinger}

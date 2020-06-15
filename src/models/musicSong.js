@@ -31,6 +31,9 @@ MusicSongSchema.statics = {
       {$inc: {"view": 1}},
       {new: true}
     ).exec();
+  },
+  findSongsBySinger(singerId){
+    return this.find({"singer": singerId}).populate('singer').exec();
   }
 }
 

@@ -33,6 +33,8 @@ const initMusicRoutes = app => {
 
   router.get('/song/:songName', SongController.findSongByName);
 
+  router.get('/song/singer/:singerId', SongController.findSongsBySinger);
+
   router.get('/song', SongController.findAllSongs);
 
   // singer
