@@ -20,8 +20,12 @@ const findSongsBySinger = async singerId => {
   return await MusicSong.findSongsBySinger(singerId);
 }
 
+const findSongsByTopic = async topic => {
+  return await MusicSong.findSongsByTopic(topic);
+}
+
 const incAnonymousView = async songId => {
   return await MusicSong.increaseView(songId);
 }
 
-export default {createSong, findSongById, findSongByName, findAllSongs, findSongsBySinger, incAnonymousView}
+export default {createSong, findSongById, findSongByName, findAllSongs, findSongsBySinger, incAnonymousView, findSongsByTopic}

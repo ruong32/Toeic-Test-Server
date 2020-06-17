@@ -35,6 +35,8 @@ const initMusicRoutes = app => {
 
   router.get('/song/singer/:singerId', SongController.findSongsBySinger);
 
+  router.get('/song/topic/:topic', SongController.findSongsByTopic);
+
   router.get('/song', SongController.findAllSongs);
 
   router.put('/song/view/anonymous', SongController.incAnonymousView)

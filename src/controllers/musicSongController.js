@@ -41,4 +41,10 @@ const incAnonymousView = async (req, res) => {
   return res.json(result);
 }
 
-export default { createSong, findSongByName, findSongById, findAllSongs, findSongsBySinger, incAnonymousView }
+const findSongsByTopic = async (req, res) => {
+  const topic = req.params.topic;
+  const result = await MusicSongServices.findSongsByTopic(topic)
+  return res.json(result);
+}
+
+export default { createSong, findSongByName, findSongById, findAllSongs, findSongsBySinger, incAnonymousView, findSongsByTopic }

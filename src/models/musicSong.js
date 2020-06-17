@@ -34,6 +34,9 @@ MusicSongSchema.statics = {
   },
   findSongsBySinger(singerId){
     return this.find({"singer": singerId}).populate('singer').exec();
+  },
+  findSongsByTopic(topic){
+    return this.find({"topic": topic}).populate('singer').exec();
   }
 }
 
