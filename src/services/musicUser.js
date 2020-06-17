@@ -21,7 +21,9 @@ const login = async (username, password) => {
 }
 
 const findUserById = async id => {
-  return await MusicUser.findUserById(id);
+  const user = await MusicUser.findUserById(id);
+  user.history.sort((h1, h2) => h2.latestListening - h1.latestListening);
+  return user;
 }
 
 const addToMySong = async (id, songId) => {

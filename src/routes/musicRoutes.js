@@ -37,6 +37,8 @@ const initMusicRoutes = app => {
 
   router.get('/song', SongController.findAllSongs);
 
+  router.put('/song/view/anonymous', SongController.incAnonymousView)
+
   // singer
   router.post('/singer/create', SingerController.createSinger);
 

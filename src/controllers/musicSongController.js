@@ -35,4 +35,10 @@ const findSongsBySinger = async (req, res) => {
   return res.json(result);
 }
 
-export default { createSong, findSongByName, findSongById, findAllSongs, findSongsBySinger }
+const incAnonymousView = async (req, res) => {
+  const songId = req.body.songId;
+  const result = await MusicSongServices.incAnonymousView(songId);
+  return res.json(result);
+}
+
+export default { createSong, findSongByName, findSongById, findAllSongs, findSongsBySinger, incAnonymousView }
