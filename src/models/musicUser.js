@@ -20,7 +20,7 @@ MusicUserSchema.statics = {
   },
   findUserByUsername(username){
     return this.findOne({"username": username})
-      .populate('mySong')
+      .populate({path: 'mySong', populate: {path: 'singer'}})
       .populate('favorite')
       .populate('history._id')
       .populate('playlst')
@@ -28,7 +28,7 @@ MusicUserSchema.statics = {
   },
   findUserById(id){
     return this.findById(id)
-      .populate('mySong')
+      .populate({path: 'mySong', populate: {path: 'singer'}})
       .populate('favorite')
       .populate('history._id')
       .populate('playlst')
