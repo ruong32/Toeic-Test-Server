@@ -18,10 +18,10 @@ MusicPlaylistSchema.statics = {
     return this.findOne({"name": name}).exec(); 
   },
   findPlaylistById(id){
-    return this.findById(id).populate('songs').exec();
+    return this.findById(id).populate({path: 'songs', populate: {path: 'singer'}}).exec();
   },
   findAllPlaylist(){
-    return this.find({}).populate('songs').exec();
+    return this.find({}).populate({path: 'songs', populate: {path: 'singer'}}).exec();
   },
   addSong(id, songId){
     return this.findOneAndUpdate(
