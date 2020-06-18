@@ -7,7 +7,7 @@ const MusicUserSchema = new Schema({
   username: String,
   password: String,
   avatar: {type: String, default: 'https://cdn2.vectorstock.com/i/1000x1000/10/86/music-equaliser-wave-vector-171086.jpg'},
-  fullname: String,
+  nickname: String,
   mySong:  [{type: Types.ObjectId, ref: 'MusicSong'}],
   favorite: [{type: Types.ObjectId, ref: 'MusicSong'}],
   history: [{_id: {type: Types.ObjectId, ref: 'MusicSong'}, latestListening: Number}],

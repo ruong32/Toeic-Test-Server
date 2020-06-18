@@ -27,16 +27,19 @@ const findUserById = async id => {
 }
 
 const addToMySong = async (id, songId) => {
-  return await MusicUser.addToMySong(id, songId);
+  await MusicUser.addToMySong(id, songId);
+  return await findUserById(id);
 }
 
 const addToFavoriteSong = async (id, songId) => {
-  return await MusicUser.addToFavoriteSong(id, songId);
+  await MusicUser.addToFavoriteSong(id, songId);
+  return await findUserById(id);
 }
 
 const addToHistory = async (id, song) => {
   MusicSong.increaseView(song._id);
-  return await MusicUser.addToHistory(id, song);
+  await MusicUser.addToHistory(id, song);
+  return await findUserById(id);
 }
 
 const addPlaylist = async (id, playlistId) => {

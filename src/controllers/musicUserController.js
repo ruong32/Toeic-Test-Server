@@ -3,6 +3,7 @@ import MusicUserServices from '../services/musicUser';
 const createUser = async (req, res) => {
   const user = {
     username: req.body.username,
+    nickname: req.body.username,
     password: req.body.password
   };
   const createdUser = await MusicUserServices.createUser(user);
