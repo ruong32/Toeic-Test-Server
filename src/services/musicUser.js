@@ -27,8 +27,12 @@ const findUserById = async id => {
 }
 
 const addToMySong = async (id, songId) => {
-  await MusicUser.addToMySong(id, songId);
-  return await findUserById(id);
+  const result = await MusicUser.addToMySong(id, songId);
+  if (!result){
+    return false;
+  } else {
+    return await findUserById(id);
+  }
 }
 
 const addToFavoriteSong = async (id, songId) => {
